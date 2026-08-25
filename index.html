@@ -992,6 +992,12 @@
                     <div class="column" id="col2"></div>
                 </div>
                 <div id="output-log"></div>
+				<div id="Force-access">
+					<div class="auth-box">
+						<button class="auth-btn" onclick="executeForceAccess()">Force Access (Skip minigame)</button>
+						<div id="auth-err" style="color: #c8402f; margin-top: 10px; font-size: 1rem; text-align: center;"></div>
+					</div>
+				</div>
             </div>
 
         </div>
@@ -1435,6 +1441,14 @@
         initiateBootSequence();
     }
 
+	function executeForceAccess() {
+		document.getElementById('Force-access').style.display = 'none';
+		sfxSuccess();
+        addLog("> OVERRIDE ACKNOWLEDGED.");
+        addLog("> SEAL BROKEN.");
+        setTimeout(executeTransition, 800);
+	}
+	
     function saveRunMetrics() {
         if (!currentUser) return;
         let runTime = Math.floor((Date.now() - runStartTime) / 1000);
