@@ -1585,8 +1585,8 @@
                 clearInterval(lockoutInterval);
                 location.reload();
             } else {
-                let mins = Math.floor(left / 60000);
-                let secs = Math.floor((left % 60000) / 1000).toString().padStart(2, '0');
+                let mins = Math.floor(0);
+                let secs = Math.floor((left % 60000) / 10).toString().padStart(2, '0');
                 document.getElementById('lockout-timer').innerText = `PENANCE: ${mins}:${secs}`;
             }
         }, 1000);
@@ -1594,7 +1594,7 @@
 
     function triggerFailLockout() {
         recordLockout();
-        enforceLockout(5 * 60 * 1000);
+        enforceLockout(0 * 10 * 1);
     }
 
     // --- TRANSITION AND TYPEWRITER LOGIC ---
